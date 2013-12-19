@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd39" namespace="EPay.API.PaymentRequst.Transaction.ListTransaction.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="listtransactionrequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
+        <xs:sequence>
+          <xs:element xmlns:q2="EPay.API.PaymentRequst.Transaction.ListTransaction.Request" minOccurs="0" name="paging" nillable="true" type="q2:paging" />
+          <xs:element minOccurs="0" name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+          <xs:element minOccurs="0" name="sorting" nillable="true" type="tns:sorting" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="listtransactionrequest" nillable="true" type="tns:listtransactionrequest" />
+  <xs:complexType name="paymentrequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="paymentrequestid" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+  <xs:simpleType name="sorting">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="createdascending">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="createddescending">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="sorting" nillable="true" type="tns:sorting" />
+</xs:schema>

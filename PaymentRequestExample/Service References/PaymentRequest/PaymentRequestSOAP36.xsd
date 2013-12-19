@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequest" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd6" namespace="EPay.API.PaymentWindow" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd4" namespace="EPay.API" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd30" namespace="EPay.API.PaymentRequest.Form" />
+  <xs:complexType name="paymentrequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="closeafterxpayments" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="exactclosedate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="EPay.API.PaymentWindow" minOccurs="0" name="parameters" nillable="true" type="q1:parameters" />
+      <xs:element minOccurs="0" name="reference" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+  <xs:complexType name="response">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="EPay.API" base="q2:response">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="response" nillable="true" type="tns:response" />
+  <xs:complexType name="form">
+    <xs:sequence>
+      <xs:element xmlns:q3="EPay.API.PaymentRequest.Form" minOccurs="0" name="inputlist" nillable="true" type="q3:inputlist" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="termsurl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="form" nillable="true" type="tns:form" />
+</xs:schema>

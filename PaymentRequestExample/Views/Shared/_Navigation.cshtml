@@ -1,0 +1,76 @@
+﻿<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">
+                <img src="~/Content/logo.png" alt="ePay" />
+            </a>
+            <div class="nav-collapse collapse">
+
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "form-logout", @class = "navbar-form pull-right" }))
+                    {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-link hidden-phone">Log off</button>
+                    }
+                    <p class="navbar-text pull-right hidden-phone">@User.Identity.Name</p>
+                    <p class="navbar-text visible-phone">@User.Identity.Name</p>    
+                }
+
+
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="@Url.Action("Index", "Home")" class="dropdown-toggle" data-toggle="dropdown">Form menu<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">@Html.ActionLink("Create form", "Create", "Form")</li>
+                            <li class="">@Html.ActionLink("Delete form", "Delete", "Form")</li>
+                            <li class="">@Html.ActionLink("Get form", "Get", "Form")</li>
+                            <li class="">@Html.ActionLink("List form", "List", "Form")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="@Url.Action("Index", "Home")" class="dropdown-toggle" data-toggle="dropdown">PaymentRequest menu<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">@Html.ActionLink("Create paymentrequest", "Create", "PaymentRequest")</li>
+                            <li class="">@Html.ActionLink("Delete paymentrequest", "Delete", "PaymentRequest")</li>
+                            <li class="">@Html.ActionLink("Get paymentrequest", "Get", "PaymentRequest")</li>
+                            <li class="">@Html.ActionLink("List paymentrequest", "List", "PaymentRequest")</li>
+                            <li class="">@Html.ActionLink("Send Paymentrequest", "Send", "PaymentRequest")</li>
+                            <li class="">@Html.ActionLink("Close paymentrequest", "Close", "PaymentRequest")</li>
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="@Url.Action("Index", "Home")" class="dropdown-toggle" data-toggle="dropdown">Transaction menu<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">@Html.ActionLink("Add Transaction", "Add", "Transaction")</li>
+                            <li class="">@Html.ActionLink("Get Transaction", "Get", "Transaction")</li>
+                            <li class="">@Html.ActionLink("List Transaction", "List", "Transaction")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="@Url.Action("Index", "Home")" class="dropdown-toggle" data-toggle="dropdown">Responselog menu<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">@Html.ActionLink("Get Responselog", "Get", "Responselog")</li>
+                            <li class="">@Html.ActionLink("List Responselogs", "List", "Responselog")</li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

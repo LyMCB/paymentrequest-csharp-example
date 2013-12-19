@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.DeleteForm.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.DeleteForm.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
+  <xs:complexType name="deleteformresponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="deleteformresponse" nillable="true" type="tns:deleteformresponse" />
+</xs:schema>

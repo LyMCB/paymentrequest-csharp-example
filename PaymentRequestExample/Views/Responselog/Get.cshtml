@@ -1,0 +1,111 @@
+﻿@model PaymentRequestExample.PaymentRequest.getrequestresponselogresponse
+
+@{
+    ViewBag.Title = "Get";
+}
+
+<h1>Responselog  <small>Get</small></h1>
+
+@if (Model != null && Model.requestresponselog == null)
+{
+    <div class="alert warning">
+        <button class="close" data-dismiss="alert">×</button>
+        <strong>Note!</strong>
+        No log found
+    </div> 
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="control-group">
+        <label class="control-label" for="requestresponselogid">Responselog ID</label>
+        <div class="controls">
+            <input type="number" name="requestresponselogid" class="span5" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Get form</button>
+    </div>
+}
+
+
+
+@if (Model != null && Model.requestresponselog != null)
+{
+    <br />
+    <br />
+    <h3>Result</h3>
+    
+    <table class="table table-hover table-striped">
+        <tbody>
+            <tr>
+                <th>Processingtimeinms</th>
+                <td>@Model.requestresponselog.processingtimeinms</td>
+            </tr>
+
+            <tr>
+                <th>Requestapimethod</th>
+                <td>@Model.requestresponselog.requestapimethod</td>
+            </tr>
+            <tr>
+                <th>Requestcontentencoding</th>
+                <td>@Model.requestresponselog.requestcontentencoding</td>
+            </tr>
+            <tr>
+                <th>Requestcontenttype</th>
+                <td>@Model.requestresponselog.requestcontenttype</td>
+            </tr>
+            <tr>
+                <th>Requestcreated</th>
+                <td>@Model.requestresponselog.requestcreated</td>
+            </tr>
+            <tr>
+                <th>Requesthttpmethod</th>
+                <td>@Model.requestresponselog.requesthttpmethod</td>
+            </tr>
+            <tr>
+                <th>Requestinputstream</th>
+                <td>@Model.requestresponselog.requestinputstream</td>
+
+            </tr>
+            <tr>
+                <th>Requestip</th>
+                <td>@Model.requestresponselog.requestip</td>
+            </tr>
+            <tr>
+                <th>Requestrawurl</th>
+                <td>@Model.requestresponselog.requestrawurl</td>
+
+            </tr>
+            <tr>
+                <th>Requestresponselogid</th>
+                <td>@Model.requestresponselog.requestresponselogid</td>
+            </tr>
+            <tr>
+                <th>Responsecontentencoding</th>
+                <td>@Model.requestresponselog.responsecontentencoding</td>
+
+            </tr>
+            <tr>
+                <th>Responsecontenttype</th>
+                <td>@Model.requestresponselog.responsecontenttype</td>
+
+            </tr>
+            <tr>
+                <th>Responsecreated</th>
+                <td>@Model.requestresponselog.responsecreated</td>
+
+            </tr>
+            <tr>
+                <th>Responseoutputstream</th>
+                <td>@Model.requestresponselog.responseoutputstream</td>
+
+            </tr>
+            <tr>
+                <th>Responseresult</th>
+                <td>@Model.requestresponselog.responseresult</td>
+            </tr>
+        </tbody>
+    </table>
+}

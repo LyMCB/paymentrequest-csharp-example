@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd4" namespace="EPay.API" />
+  <xs:complexType name="request">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API" base="q1:request">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="request" nillable="true" type="tns:request" />
+</xs:schema>

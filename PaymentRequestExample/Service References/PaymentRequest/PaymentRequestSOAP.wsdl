@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="ePay.API.PaymentRequest" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="ePay.API.PaymentRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="ePay.API.PaymentRequest/Imports">
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd0" namespace="ePay.API.PaymentRequest" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd2" namespace="EPay.API.PaymentRequst.CreatePaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd4" namespace="EPay.API" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd6" namespace="EPay.API.PaymentWindow" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd7" namespace="EPay.API.PaymentRequest.CreatePaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd8" namespace="EPay.API.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd10" namespace="EPay.API.PaymentRequst.GetPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd11" namespace="EPay.API.PaymentRequest.GetPaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd12" namespace="EPay.API.PaymentRequst.GetPaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd13" namespace="EPay.API.PaymentRequest.ListPaymentRequest" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd14" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd15" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd16" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd17" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd18" namespace="EPay.API.PaymentRequst.ListPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd19" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd20" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd21" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd22" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd23" namespace="EPay.API.PaymentRequest.Form.GetForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd24" namespace="EPay.API.PaymentRequest.Form.GetForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd25" namespace="EPay.API.PaymentRequest.Form.Input" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd26" namespace="EPay.API.PaymentRequest.Form.ListForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd27" namespace="EPay.API.PaymentRequst.Form.ListForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd28" namespace="EPay.API.PaymentRequest.Form.ListForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd29" namespace="EPay.API.PaymentRequst.Form.CreateForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd30" namespace="EPay.API.PaymentRequest.Form" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd31" namespace="EPay.API.PaymentRequest.Form.CreateForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd32" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd33" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd34" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd35" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd36" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd37" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd38" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd39" namespace="EPay.API.PaymentRequst.Transaction.ListTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd40" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd41" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd42" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd43" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd44" namespace="EPay.API.PaymentRequst.RequestResponseLog.ListRequestResponseLog.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd45" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Response" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPaymentRequest_createpaymentrequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:createpaymentrequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_createpaymentrequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createpaymentrequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_createpaymentrequest_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q1:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getpaymentrequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpaymentrequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getpaymentrequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpaymentrequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getpaymentrequest_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q2:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_closepaymentrequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:closepaymentrequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_closepaymentrequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:closepaymentrequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_closepaymentrequest_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q3:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_sendpaymentrequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendpaymentrequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_sendpaymentrequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendpaymentrequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_sendpaymentrequest_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q4:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listpaymentrequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:listpaymentrequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listpaymentrequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listpaymentrequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listpaymentrequest_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q5:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_deletepaymentrequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletepaymentrequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_deletepaymentrequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletepaymentrequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_deletepaymentrequest_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q6:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getform_InputMessage">
+    <wsdl:part name="parameters" element="tns:getform" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getformResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getform_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q7:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listform_InputMessage">
+    <wsdl:part name="parameters" element="tns:listform" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listformResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listform_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q8:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_createform_InputMessage">
+    <wsdl:part name="parameters" element="tns:createform" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_createform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createformResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_createform_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q9:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_deleteform_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteform" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_deleteform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteformResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_deleteform_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q10:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_addtransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:addtransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_addtransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addtransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_addtransaction_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q11:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_gettransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:gettransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_gettransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gettransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_gettransaction_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q12:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listtransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:listtransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listtransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listtransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listtransaction_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q13:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getrequestresponselog_InputMessage">
+    <wsdl:part name="parameters" element="tns:getrequestresponselog" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getrequestresponselog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getrequestresponselogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_getrequestresponselog_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q14:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listrequestresponselog_InputMessage">
+    <wsdl:part name="parameters" element="tns:listrequestresponselog" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listrequestresponselog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listrequestresponselogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequest_listrequestresponselog_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" name="detail" element="q15:ValidationFault" />
+  </wsdl:message>
+  <wsdl:portType name="IPaymentRequest">
+    <wsdl:operation name="createpaymentrequest">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/createpaymentrequest" message="tns:IPaymentRequest_createpaymentrequest_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/createpaymentrequestResponse" message="tns:IPaymentRequest_createpaymentrequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/createpaymentrequestValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_createpaymentrequest_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpaymentrequest">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getpaymentrequest" message="tns:IPaymentRequest_getpaymentrequest_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getpaymentrequestResponse" message="tns:IPaymentRequest_getpaymentrequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getpaymentrequestValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_getpaymentrequest_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="closepaymentrequest">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/closepaymentrequest" message="tns:IPaymentRequest_closepaymentrequest_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/closepaymentrequestResponse" message="tns:IPaymentRequest_closepaymentrequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/closepaymentrequestValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_closepaymentrequest_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendpaymentrequest">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/sendpaymentrequest" message="tns:IPaymentRequest_sendpaymentrequest_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/sendpaymentrequestResponse" message="tns:IPaymentRequest_sendpaymentrequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/sendpaymentrequestValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_sendpaymentrequest_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listpaymentrequest">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listpaymentrequest" message="tns:IPaymentRequest_listpaymentrequest_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listpaymentrequestResponse" message="tns:IPaymentRequest_listpaymentrequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listpaymentrequestValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_listpaymentrequest_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletepaymentrequest">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/deletepaymentrequest" message="tns:IPaymentRequest_deletepaymentrequest_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/deletepaymentrequestResponse" message="tns:IPaymentRequest_deletepaymentrequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/deletepaymentrequestValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_deletepaymentrequest_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getform">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getform" message="tns:IPaymentRequest_getform_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getformResponse" message="tns:IPaymentRequest_getform_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getformValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_getform_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listform">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listform" message="tns:IPaymentRequest_listform_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listformResponse" message="tns:IPaymentRequest_listform_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listformValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_listform_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createform">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/createform" message="tns:IPaymentRequest_createform_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/createformResponse" message="tns:IPaymentRequest_createform_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/createformValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_createform_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteform">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/deleteform" message="tns:IPaymentRequest_deleteform_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/deleteformResponse" message="tns:IPaymentRequest_deleteform_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/deleteformValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_deleteform_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addtransaction">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/addtransaction" message="tns:IPaymentRequest_addtransaction_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/addtransactionResponse" message="tns:IPaymentRequest_addtransaction_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/addtransactionValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_addtransaction_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gettransaction">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/gettransaction" message="tns:IPaymentRequest_gettransaction_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/gettransactionResponse" message="tns:IPaymentRequest_gettransaction_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/gettransactionValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_gettransaction_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listtransaction">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listtransaction" message="tns:IPaymentRequest_listtransaction_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listtransactionResponse" message="tns:IPaymentRequest_listtransaction_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listtransactionValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_listtransaction_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getrequestresponselog">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getrequestresponselog" message="tns:IPaymentRequest_getrequestresponselog_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getrequestresponselogResponse" message="tns:IPaymentRequest_getrequestresponselog_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/getrequestresponselogValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_getrequestresponselog_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listrequestresponselog">
+      <wsdl:input wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listrequestresponselog" message="tns:IPaymentRequest_listrequestresponselog_InputMessage" />
+      <wsdl:output wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listrequestresponselogResponse" message="tns:IPaymentRequest_listrequestresponselog_OutputMessage" />
+      <wsdl:fault wsaw:Action="ePay.API.PaymentRequest/IPaymentRequest/listrequestresponselogValidationFaultFault" name="ValidationFaultFault" message="tns:IPaymentRequest_listrequestresponselog_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

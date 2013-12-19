@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@(String.IsNullOrEmpty(ViewBag.Title) ? "ePay A/S" : String.Format("ePay A/S - {0}", ViewBag.Title))</title>
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @RenderSection("head", required: false)
+</head>
+<body>
+    @RenderSection("header", required: false)
+
+    <div id="wrap">
+        @{
+            Html.RenderPartial("_Navigation"); 
+        }
+
+        <div id="top-spacer"></div>
+
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+        <div id="push"></div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="muted">Footer</p>
+        </div>
+    </div>
+        <script type="text/javascript">
+            function isNumberKey(event) {
+                if ($.inArray(event.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                    // Allow: Ctrl+A
+                (event.keyCode == 65 && event.ctrlKey === true) ||
+                    // Allow: home, end, left, right
+                (event.keyCode >= 35 && event.keyCode <= 39)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                else {
+                    // Ensure that it is a number and stop the keypress
+                    if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                        event.preventDefault();
+                    }
+                }
+            }
+
+
+            function CheckIP(value) {
+                if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(value)) {
+                    return true;
+                }
+
+                return false;
+            }
+    </script>
+
+
+    @Scripts.Render("~/Scripts/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

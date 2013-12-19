@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Send";
+}
+
+<h1>Payment Request <small>Send</small></h1>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="control-group">
+        <label class="control-label" for="paymentrequestid">Payment Request ID</label>
+        <div class="controls">
+            <input type="number" name="paymentrequestid" class="span5" />
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label" for="email">Email</label>
+        <div class="controls">
+            <input type="email" name="email" class="span5" />
+        </div>
+    </div>
+       
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Send payment request</button>
+    </div>
+}

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+<h1>Transaction  <small>Create</small></h1>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert warning">
+        <button class="close" data-dismiss="alert">×</button>
+        <strong>Note!</strong>
+        @ViewBag.Message
+    </div>
+}
+
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="control-group">
+        <label class="control-label" for="paymentRequestId">Payment Request ID</label>
+        <div class="controls">
+            <input type="text" name="paymentRequestId" class="span5" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="transactionid">Transaction ID</label>
+        <div class="controls">
+            <input type="text" name="transactionid" class="span5" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Create transaction</button>
+    </div>
+}
+
+
+

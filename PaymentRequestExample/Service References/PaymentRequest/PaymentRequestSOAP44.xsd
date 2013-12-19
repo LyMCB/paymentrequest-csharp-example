@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.CreateForm.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.CreateForm.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
+  <xs:complexType name="createformresponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="form" nillable="true" type="tns:form" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="createformresponse" nillable="true" type="tns:createformresponse" />
+  <xs:complexType name="form">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formid" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="form" nillable="true" type="tns:form" />
+</xs:schema>

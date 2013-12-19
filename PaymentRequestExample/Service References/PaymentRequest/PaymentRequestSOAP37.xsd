@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API" elementFormDefault="qualified" targetNamespace="EPay.API" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd8" namespace="EPay.API.Response" />
+  <xs:complexType name="request">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authentication" nillable="true" type="tns:authentication" />
+      <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="localtimezone" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="request" nillable="true" type="tns:request" />
+  <xs:complexType name="authentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="merchantnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="authentication" nillable="true" type="tns:authentication" />
+  <xs:complexType name="response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="EPay.API.Response" minOccurs="0" name="reason" type="q1:reason" />
+      <xs:element minOccurs="0" name="requestresponselogid" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="response" nillable="true" type="tns:response" />
+</xs:schema>

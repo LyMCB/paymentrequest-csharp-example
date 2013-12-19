@@ -1,0 +1,72 @@
+﻿@model PaymentRequestExample.PaymentRequest.listrequestresponselogresponse
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h1>Responselog  <small>List</small></h1>
+
+@if (Model != null && Model.requestresponseloglist.Count > 0)
+{
+    @Html.ActionLink("Refresh list", "RefreshList", null, new { @class = "btn btn-danger" }) 
+    <br />
+    <br />
+    
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Requestresponselogid</th>
+                <th>Requestapimethod</th>
+                <th>Requestcontentencoding</th>
+                <th>Requestcontenttype</th>
+                <th>Requestcreated</th>
+                <th>Requesthttpmethod</th>
+                <th>Requestip</th>
+                <th>Requestrawurl</th>
+                <th>Responsecontentencoding</th>
+                <th>Responsecontenttype</th>
+                <th>Responsecreated</th>
+                <th>Responseresult</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.requestresponseloglist)
+            {
+                <tr>
+                    <td>@item.requestresponselogid</td>
+                    <td>@item.requestapimethod</td>
+                    <td>@item.requestcontentencoding</td>
+                    <td>@item.requestcontenttype</td>
+                    <td>@item.requestcreated</td>
+                    <td>@item.requesthttpmethod</td>
+                    <td>@item.requestip</td>
+                    <td>@item.requestrawurl</td>
+                    <td>@item.responsecontentencoding</td>
+                    <td>@item.responsecontenttype</td>
+                    <td>@item.responsecreated</td>
+                    <td>@item.responseresult</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+            if (ViewBag.ShowBackKey)
+            {
+    @Html.ActionLink("< Back", "List", new { startkey = ViewBag.BackKey, page = ViewBag.CurrentPage - 1 }, new { @class = "btn btn-primary" }) 
+    @:&nbsp;
+            }
+
+    
+    
+    @Html.ActionLink("Next >", "List", new { startkey = Model.paging.lastevaluatedkey, page = ViewBag.CurrentPage + 1 }, new { @class = "btn btn-primary" }) 
+    
+}
+
+else
+{
+    <div class="alert warning">
+        <button class="close" data-dismiss="alert">×</button>
+        <strong>Note!</strong>
+        No responselog found
+    </div> 
+}

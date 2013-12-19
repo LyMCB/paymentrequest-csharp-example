@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.GetPaymentRequest.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.GetPaymentRequest.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd12" namespace="EPay.API.PaymentRequst.GetPaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
+  <xs:complexType name="getpaymentrequestresponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
+        <xs:sequence>
+          <xs:element xmlns:q2="EPay.API.PaymentRequst.GetPaymentRequest.Response" minOccurs="0" name="paymentrequest" nillable="true" type="q2:paymentrequest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="getpaymentrequestresponse" nillable="true" type="tns:getpaymentrequestresponse" />
+</xs:schema>

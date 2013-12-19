@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="ePay.API.PaymentRequest" elementFormDefault="qualified" targetNamespace="ePay.API.PaymentRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd2" namespace="EPay.API.PaymentRequst.CreatePaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd7" namespace="EPay.API.PaymentRequest.CreatePaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd10" namespace="EPay.API.PaymentRequst.GetPaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd11" namespace="EPay.API.PaymentRequest.GetPaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd14" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd15" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd16" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd17" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd18" namespace="EPay.API.PaymentRequst.ListPaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd20" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd21" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd22" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd23" namespace="EPay.API.PaymentRequest.Form.GetForm.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd24" namespace="EPay.API.PaymentRequest.Form.GetForm.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd26" namespace="EPay.API.PaymentRequest.Form.ListForm.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd28" namespace="EPay.API.PaymentRequest.Form.ListForm.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd29" namespace="EPay.API.PaymentRequst.Form.CreateForm.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd31" namespace="EPay.API.PaymentRequest.Form.CreateForm.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd32" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd33" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd34" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd35" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd36" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd37" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd38" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd40" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd41" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd42" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Response" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd43" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd45" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Response" />
+  <xs:element name="createpaymentrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="EPay.API.PaymentRequst.CreatePaymentRequest.Request" minOccurs="0" name="createpaymentrequestrequest" nillable="true" type="q1:createpaymentrequestrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createpaymentrequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="EPay.API.PaymentRequest.CreatePaymentRequest.Response" minOccurs="0" name="createpaymentrequestResult" nillable="true" type="q2:createpaymentrequestresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpaymentrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="EPay.API.PaymentRequst.GetPaymentRequest.Request" minOccurs="0" name="getpaymentrequestrequest" nillable="true" type="q3:getpaymentrequestrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpaymentrequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="EPay.API.PaymentRequest.GetPaymentRequest.Response" minOccurs="0" name="getpaymentrequestResult" nillable="true" type="q4:getpaymentrequestresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="closepaymentrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="EPay.API.PaymentRequest.ClosePaymentRequest.Request" minOccurs="0" name="closepaymentrequestrequest" nillable="true" type="q5:closepaymentrequestrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="closepaymentrequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="EPay.API.PaymentRequest.ClosePaymentRequest.Response" minOccurs="0" name="closepaymentrequestResult" nillable="true" type="q6:closepaymentrequestresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendpaymentrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="EPay.API.PaymentRequest.SendPaymentRequest.Request" minOccurs="0" name="sendpaymentrequestrequest" nillable="true" type="q7:sendpaymentrequestrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendpaymentrequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="EPay.API.PaymentRequest.SendPaymentRequest.Response" minOccurs="0" name="sendpaymentrequestResult" nillable="true" type="q8:sendpaymentrequestresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listpaymentrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="EPay.API.PaymentRequst.ListPaymentRequest.Request" minOccurs="0" name="listpaymentrequestrequest" nillable="true" type="q9:listpaymentrequestrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listpaymentrequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="EPay.API.PaymentRequest.ListPaymentRequest.Response" minOccurs="0" name="listpaymentrequestResult" nillable="true" type="q10:listpaymentrequestresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletepaymentrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="EPay.API.PaymentRequest.DeletePaymentRequest.Request" minOccurs="0" name="deletepaymetrequestrequest" nillable="true" type="q11:deletepaymentrequestrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletepaymentrequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="EPay.API.PaymentRequest.DeletePaymentRequest.Response" minOccurs="0" name="deletepaymentrequestResult" nillable="true" type="q12:deletepaymentrequestresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="EPay.API.PaymentRequest.Form.GetForm.Request" minOccurs="0" name="createformrequest" nillable="true" type="q13:getformrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="EPay.API.PaymentRequest.Form.GetForm.Response" minOccurs="0" name="getformResult" nillable="true" type="q14:getformresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="EPay.API.PaymentRequest.Form.ListForm.Request" minOccurs="0" name="listformrequest" nillable="true" type="q15:listformrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="EPay.API.PaymentRequest.Form.ListForm.Response" minOccurs="0" name="listformResult" nillable="true" type="q16:listformresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="EPay.API.PaymentRequst.Form.CreateForm.Request" minOccurs="0" name="createformrequest" nillable="true" type="q17:createformrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="EPay.API.PaymentRequest.Form.CreateForm.Response" minOccurs="0" name="createformResult" nillable="true" type="q18:createformresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="EPay.API.PaymentRequest.Form.DeleteForm.Request" minOccurs="0" name="deleteformrequest" nillable="true" type="q19:deleteformrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="EPay.API.PaymentRequest.Form.DeleteForm.Response" minOccurs="0" name="deleteformResult" nillable="true" type="q20:deleteformresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addtransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" minOccurs="0" name="addtransactionrequest" nillable="true" type="q21:addtransactionrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addtransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="EPay.API.PaymentRequest.Transaction.AddTransaction.Response" minOccurs="0" name="addtransactionResult" nillable="true" type="q22:addtransactionresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gettransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" minOccurs="0" name="gettransactionrequest" nillable="true" type="q23:gettransactionrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gettransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" minOccurs="0" name="gettransactionResult" nillable="true" type="q24:gettransactionresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listtransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" minOccurs="0" name="listtransactionrequest" nillable="true" type="q25:listtransactionrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listtransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" minOccurs="0" name="listtransactionResult" nillable="true" type="q26:listtransactionresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getrequestresponselog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" minOccurs="0" name="getrequestresponselogrequest" nillable="true" type="q27:getrequestresponselogrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getrequestresponselogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Response" minOccurs="0" name="getrequestresponselogResult" nillable="true" type="q28:getrequestresponselogresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listrequestresponselog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" minOccurs="0" name="listrequestresponselogrequest" nillable="true" type="q29:listrequestresponselogrequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listrequestresponselogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Response" minOccurs="0" name="listrequestresponselogResult" nillable="true" type="q30:listrequestresponselogresponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

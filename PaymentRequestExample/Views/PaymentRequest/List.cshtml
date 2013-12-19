@@ -1,0 +1,67 @@
+﻿@model PaymentRequestExample.PaymentRequest.listpaymentrequestresponse
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h1>Payment request  <small>List</small></h1>
+
+@if (Model != null && Model.paymentrequestlist.Count > 0)
+{
+    @Html.ActionLink("Refresh list", "RefreshList", null, new { @class = "btn btn-danger" }) 
+
+    <br />
+    <br />
+    
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Payment Request ID</th>
+                <th>Amount</th>
+                <th>Created</th>
+                <th>Currency</th>
+                <th>Num transactions</th>
+                <th>Key</th>
+                <th>Link</th>
+                <th>Reference</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.paymentrequestlist)
+            {
+                <tr>
+                    <td>@item.paymentrequestid</td>
+                    <td>@item.amount</td>
+                    <td>@item.created</td>
+                    <td>@item.currency</td>
+                    <td>@item.numberoftransactions</td>
+                    <td>@item.key</td>
+                    <td>@item.link</td>
+                    <td>@item.reference</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    
+    
+            if (ViewBag.ShowBackKey)
+            {
+    @Html.ActionLink("< Back", "List", new { startkey = ViewBag.BackKey, page = ViewBag.CurrentPage - 1 }, new { @class = "btn btn-primary" }) 
+    @:&nbsp;
+            }
+
+    
+    
+    @Html.ActionLink("Next >", "List", new { startkey = Model.paging.lastevaluatedkey, page = ViewBag.CurrentPage + 1 }, new { @class = "btn btn-primary" }) 
+    
+}
+
+else
+{
+    <div class="alert warning">
+        <button class="close" data-dismiss="alert">×</button>
+        <strong>Note!</strong>
+        No Payment Request found
+    </div> 
+}

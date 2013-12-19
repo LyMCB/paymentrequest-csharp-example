@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="EPay.API.PaymentRequst.ListPaymentRequest.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequst.ListPaymentRequest.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd19" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Request" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd13" namespace="EPay.API.PaymentRequest.ListPaymentRequest" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+  <xs:complexType name="listpaymentrequestrequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="paging" nillable="true" type="tns:paging" />
+          <xs:element xmlns:q2="EPay.API.PaymentRequest.ListPaymentRequest.Request" minOccurs="0" name="sorting" nillable="true" type="q2:sorting" />
+          <xs:element xmlns:q3="EPay.API.PaymentRequest.ListPaymentRequest" minOccurs="0" name="status" nillable="true" type="q3:status" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="listpaymentrequestrequest" nillable="true" type="tns:listpaymentrequestrequest" />
+  <xs:complexType name="paging">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="exclusivestartkey" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="pagesize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="paging" nillable="true" type="tns:paging" />
+</xs:schema>
