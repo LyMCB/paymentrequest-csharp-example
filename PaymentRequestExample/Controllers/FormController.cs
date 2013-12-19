@@ -11,7 +11,7 @@ namespace PaymentRequestExample.Controllers
     public class FormController : Controller
     {
         private static PaymentRequestClient client = new PaymentRequestClient();
-        private static string controllername = "paymentrequest";
+        private static string controllername = "form";
 
         public ActionResult Get()
         {
