@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Runtime.Caching;
 
 namespace PaymentRequestExample.Misc
 {
     public static class CacheHandler
     {
-        private static ObjectCache cache = MemoryCache.Default;
+        private static readonly ObjectCache cache = MemoryCache.Default;
 
         public static void AddToCache(string cacheName, Object value)
         {
@@ -16,7 +14,6 @@ namespace PaymentRequestExample.Misc
             {
                 Priority = CacheItemPriority.Default,
                 AbsoluteExpiration = DateTime.Now.AddDays(1)
-
             });
         }
 
@@ -36,7 +33,6 @@ namespace PaymentRequestExample.Misc
             cache.Remove(key);
         }
 
-
         public static void RefreshList(string ip, string methodname)
         {
             int page = 1;
@@ -51,15 +47,12 @@ namespace PaymentRequestExample.Misc
                 {
                     return;
                 }
-
                 else
                 {
                     CacheHandler.Remove(cachename);
                     page++;
                 }
-
             }
-
         }
     }
 }

@@ -1,17 +1,15 @@
 ﻿using PaymentRequestExample.Misc;
 using PaymentRequestExample.PaymentRequest;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PaymentRequestExample.Controllers
 {
     public class TransactionController : Controller
     {
-        private static PaymentRequestClient client = new PaymentRequestClient();
-        private static string controllername = "transaction";
+        private static readonly PaymentRequestClient client = new PaymentRequestClient();
+        private static readonly string controllerName = "transaction";
 
         public ActionResult Add()
         {
@@ -23,7 +21,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.addtransactionresponse addPaymentRequestTransactionResponse = client.addtransaction(new PaymentRequest.addtransactionrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest2
                 {
                     paymentrequestid = paymentRequestId
@@ -42,7 +40,6 @@ namespace PaymentRequestExample.Controllers
             return View();
         }
 
-
         public ActionResult List()
         {
             return View();
@@ -51,29 +48,27 @@ namespace PaymentRequestExample.Controllers
         [HttpPost]
         public ActionResult List(long paymentRequestId, long? startkey, int page = 1)
         {
-            string cachename = Request.UserHostAddress + controllername + page;
+            string cacheName = Session.SessionID + controllerName + page;
             ViewBag.ShowBackKey = false;
             ViewBag.CurrentPage = page;
 
-            var response = (PaymentRequest.listtransactionresponse)CacheHandler.Get(cachename);
+            var response = CacheHandler.Get(cacheName) as PaymentRequest.listtransactionresponse;
 
             if (response == null)
             {
                 response = client.listtransaction(new PaymentRequest.listtransactionrequest
                 {
-                    authentication = PaymentRequestWrapper.GetAuthentication(),
+                    authentication = PaymentRequestWrapper.Authentication,
                     paging = startkey.HasValue ? new paging2 { exclusivestartkey = startkey.Value } : null,
-
                     paymentrequest = new PaymentRequest.paymentrequest4
                     {
                         paymentrequestid = paymentRequestId
-
                     }
                 });
 
                 if (response.result)
                 {
-                    CacheHandler.AddToCache(cachename, response);
+                    CacheHandler.AddToCache(cacheName, response);
                 }
             }
 
@@ -82,10 +77,8 @@ namespace PaymentRequestExample.Controllers
                 ViewBag.ShowBackKey = true;
             }
 
-
             return View(response);
         }
-
 
         public ActionResult Get()
         {
@@ -97,8 +90,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.gettransactionresponse getPaymentRequestTransactionResponse = client.gettransaction(new PaymentRequest.gettransactionrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
-
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest7
                 {
                     paymentrequestid = paymentRequestId
@@ -114,11 +106,7 @@ namespace PaymentRequestExample.Controllers
                 ViewBag.Message = getPaymentRequestTransactionResponse.message;
             }
 
-
             return View(getPaymentRequestTransactionResponse);
         }
-
-
-
     }
 }

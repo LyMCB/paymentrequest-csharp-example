@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using PaymentRequestExample.PaymentRequest;
 using PaymentRequestExample.Misc;
@@ -10,8 +8,8 @@ namespace PaymentRequestExample.Controllers
 {
     public class FormController : Controller
     {
-        private static PaymentRequestClient client = new PaymentRequestClient();
-        private static string controllername = "form";
+        private static readonly PaymentRequestClient client = new PaymentRequestClient();
+        private static readonly string controllerName = "form";
 
         public ActionResult Get()
         {
@@ -25,7 +23,7 @@ namespace PaymentRequestExample.Controllers
 
             PaymentRequest.getformresponse getFormResponse = client.getform(new PaymentRequest.getformrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 form = new PaymentRequest.form
                 {
                     formid = formid
@@ -74,7 +72,7 @@ namespace PaymentRequestExample.Controllers
 
             PaymentRequest.createformresponse createFormResponse = client.createform(new PaymentRequest.createformrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 form = new PaymentRequest.form1
                 {
                     name = formname + "-" + DateTime.UtcNow,
@@ -95,7 +93,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.listformresponse listFormResponse = client.listform(new PaymentRequest.listformrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication()
+                authentication = PaymentRequestWrapper.Authentication
             });
 
             return View(listFormResponse);
@@ -103,9 +101,9 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult DeleteForm(long formid)
         {
-            PaymentRequest.deleteformresponse createFormResponse = client.deleteform(new PaymentRequest.deleteformrequest
+            client.deleteform(new PaymentRequest.deleteformrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 form = new PaymentRequest.form2
                 {
                     formid = formid
@@ -117,22 +115,22 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult List(long? startkey, int page = 1)
         {
-            string cachename = Request.UserHostAddress + controllername + page;
+            string cacheName = Session.SessionID + controllerName + page;
             ViewBag.ShowBackKey = false;
             ViewBag.CurrentPage = page;
 
-            var response = (PaymentRequest.listformresponse)CacheHandler.Get(cachename);
+            var response = CacheHandler.Get(cacheName) as PaymentRequest.listformresponse;
 
             if (response == null)
             {
                 response = client.listform(new PaymentRequest.listformrequest
                 {
-                    authentication = PaymentRequestWrapper.GetAuthentication()
+                    authentication = PaymentRequestWrapper.Authentication
                 });
 
                 if (response.result)
                 {
-                    CacheHandler.AddToCache(cachename, response);
+                    CacheHandler.AddToCache(cacheName, response);
                 }
             }
 
@@ -146,9 +144,8 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult RefreshList()
         {
-            CacheHandler.RefreshList(Request.UserHostAddress, controllername);
+            CacheHandler.RefreshList(Session.SessionID, controllerName);
             return RedirectToAction("List");
         }
-
     }
 }

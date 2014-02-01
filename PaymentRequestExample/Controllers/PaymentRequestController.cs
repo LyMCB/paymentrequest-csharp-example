@@ -1,17 +1,15 @@
 ﻿using PaymentRequestExample.Misc;
 using PaymentRequestExample.PaymentRequest;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PaymentRequestExample.Controllers
 {
     public class PaymentRequestController : Controller
     {
-        private static PaymentRequestClient client = new PaymentRequestClient();
-        private static string controllername = "paymentrequest";
+        private static readonly PaymentRequestClient client = new PaymentRequestClient();
+        private static readonly string controllerName = "paymentrequest";
 
         public ActionResult Create()
         {
@@ -21,9 +19,9 @@ namespace PaymentRequestExample.Controllers
         [HttpPost]
         public ActionResult Create(string reference, string amount, string currency)
         {
-            PaymentRequest.createpaymentrequestresponse createPaymentRequestResponse = client.createpaymentrequest(new PaymentRequest.createpaymentrequestrequest
+            client.createpaymentrequest(new PaymentRequest.createpaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest
                 {
                     reference = reference,
@@ -51,7 +49,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.getpaymentrequestresponse getPaymentRequestResponse = client.getpaymentrequest(new PaymentRequest.getpaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest5
                 {
                     paymentrequestid = paymentRequestId
@@ -65,7 +63,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.listpaymentrequestresponse listPaymentRequestResponse = client.listpaymentrequest(new PaymentRequest.listpaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication()
+                authentication = PaymentRequestWrapper.Authentication
             });
 
             return View(listPaymentRequestResponse);
@@ -73,9 +71,9 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult DeletePaymentRequest(long paymentRequestId)
         {
-            PaymentRequest.deletepaymentrequestresponse deletePaymentRequestResponse = client.deletepaymentrequest(new PaymentRequest.deletepaymentrequestrequest
+            client.deletepaymentrequest(new PaymentRequest.deletepaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest3
                 {
                     paymentrequestid = paymentRequestId
@@ -85,26 +83,25 @@ namespace PaymentRequestExample.Controllers
             return RedirectToAction("Delete");
         }
 
-
         public ActionResult List(long? startkey, int page = 1)
         {
-            string cachename = Request.UserHostAddress + controllername + page;
+            string cacheName = Session.SessionID + controllerName + page;
             ViewBag.ShowBackKey = false;
             ViewBag.CurrentPage = page;
 
-            var response = (PaymentRequest.listpaymentrequestresponse)CacheHandler.Get(cachename);
+            var response = CacheHandler.Get(cacheName) as PaymentRequest.listpaymentrequestresponse;
 
             if (response == null)
             {
                 response = client.listpaymentrequest(new PaymentRequest.listpaymentrequestrequest
                 {
-                    authentication = PaymentRequestWrapper.GetAuthentication(),
+                    authentication = PaymentRequestWrapper.Authentication,
                     paging = startkey.HasValue ? new paging1 { exclusivestartkey = startkey.Value } : null
                 });
 
                 if (response.result)
                 {
-                    CacheHandler.AddToCache(cachename, response);
+                    CacheHandler.AddToCache(cacheName, response);
                 }
             }
 
@@ -116,7 +113,6 @@ namespace PaymentRequestExample.Controllers
             return View(response);
         }
 
-
         public ActionResult Send()
         {
             return View();
@@ -125,9 +121,9 @@ namespace PaymentRequestExample.Controllers
         [HttpPost]
         public ActionResult Send(long paymentRequestId, string email)
         {
-            PaymentRequest.sendpaymentrequestresponse sendPaymentRequestResponse = client.sendpaymentrequest(new PaymentRequest.sendpaymentrequestrequest
+            client.sendpaymentrequest(new PaymentRequest.sendpaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest6
                 {
                     paymentrequestid = paymentRequestId
@@ -141,7 +137,6 @@ namespace PaymentRequestExample.Controllers
                 }
             });
 
-
             return View();
         }
 
@@ -149,7 +144,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.listpaymentrequestresponse listPaymentRequestResponse = client.listpaymentrequest(new PaymentRequest.listpaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication()
+                authentication = PaymentRequestWrapper.Authentication
             });
 
             return View(listPaymentRequestResponse);
@@ -157,9 +152,9 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult ClosePaymentRequest(long paymentRequestId)
         {
-            PaymentRequest.closepaymentrequestresponse closePaymentRequestResponse = client.closepaymentrequest(new PaymentRequest.closepaymentrequestrequest
+            client.closepaymentrequest(new PaymentRequest.closepaymentrequestrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 paymentrequest = new PaymentRequest.paymentrequest1
                 {
                     paymentrequestid = paymentRequestId
@@ -171,9 +166,8 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult RefreshList()
         {
-            CacheHandler.RefreshList(Request.UserHostAddress, controllername);
+            CacheHandler.RefreshList(Session.SessionID, controllerName);
             return RedirectToAction("List");
         }
-
     }
 }

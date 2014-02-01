@@ -1,18 +1,15 @@
 ﻿using PaymentRequestExample.Misc;
 using PaymentRequestExample.PaymentRequest;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PaymentRequestExample.Controllers
 {
-    public class ResponselogController : Controller
+    public class ResponseLogController : Controller
     {
-        private static PaymentRequestClient client = new PaymentRequestClient();
-        private static string controllername = "responselog";
+        private static readonly PaymentRequestClient client = new PaymentRequestClient();
+        private static readonly string controllerName = "responselog";
 
         public ActionResult Get()
         {
@@ -24,7 +21,7 @@ namespace PaymentRequestExample.Controllers
         {
             PaymentRequest.getrequestresponselogresponse response = client.getrequestresponselog(new PaymentRequest.getrequestresponselogrequest
             {
-                authentication = PaymentRequestWrapper.GetAuthentication(),
+                authentication = PaymentRequestWrapper.Authentication,
                 requestresponselog = new requestresponselog { requestresponselogid = requestresponselogid }
             });
 
@@ -33,24 +30,24 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult List(long? startkey, int page = 1)
         {
-            string cachename = Request.UserHostAddress + controllername + page;
+            string cacheName = Session.SessionID + controllerName + page;
             ViewBag.ShowBackKey = false;
             ViewBag.CurrentPage = page;
 
-            var response = (PaymentRequest.listrequestresponselogresponse)CacheHandler.Get(cachename);
+            var response = CacheHandler.Get(cacheName) as PaymentRequest.listrequestresponselogresponse;
 
             if (response == null)
             {
                 var request = new PaymentRequest.listrequestresponselogrequest
                 {
-                    authentication = PaymentRequestWrapper.GetAuthentication(),
+                    authentication = PaymentRequestWrapper.Authentication,
                     paging = startkey.HasValue ? new paging { exclusivestartkey = startkey.Value } : null
                 };
                 response = client.listrequestresponselog(request);
 
                 if (response.result)
                 {
-                    CacheHandler.AddToCache(cachename, response);
+                    CacheHandler.AddToCache(cacheName, response);
                 }
             }
 
@@ -64,9 +61,8 @@ namespace PaymentRequestExample.Controllers
 
         public ActionResult RefreshList()
         {
-            CacheHandler.RefreshList(Request.UserHostAddress, controllername);
+            CacheHandler.RefreshList(Session.SessionID, controllerName);
             return RedirectToAction("List");
         }
-
     }
 }

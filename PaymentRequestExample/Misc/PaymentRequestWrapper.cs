@@ -1,25 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using PaymentRequestExample.PaymentRequest;
 
-namespace PaymentRequestExample.PaymentRequest
+namespace PaymentRequestExample.Misc
 {
     public static class PaymentRequestWrapper
     {
-        private static string merchantNumber = System.Configuration.ConfigurationManager.AppSettings["merchantNumber"];
-        private static string password = System.Configuration.ConfigurationManager.AppSettings["password"];
+        private static readonly string merchantNumber = System.Configuration.ConfigurationManager.AppSettings["merchantNumber"];
+        private static readonly string password = System.Configuration.ConfigurationManager.AppSettings["password"];
 
-        public static authentication GetAuthentication()
+        public static authentication Authentication
         {
-            authentication auth = new PaymentRequest.authentication
+            get
+            {
+                authentication auth = new PaymentRequest.authentication
                 {
                     merchantnumber = merchantNumber,
                     password = password
                 };
 
-            return auth;
+                return auth;
+            }
         }
-
     }
 }
