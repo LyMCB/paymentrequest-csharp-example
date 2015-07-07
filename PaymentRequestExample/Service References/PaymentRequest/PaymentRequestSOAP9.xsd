@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequst.Transaction.ListTransaction.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequst.Transaction.ListTransaction.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+  <xs:complexType name="listrequestresponselogrequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="paging" nillable="true" type="tns:paging" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="listrequestresponselogrequest" nillable="true" type="tns:listrequestresponselogrequest" />
   <xs:complexType name="paging">
     <xs:sequence>
       <xs:element minOccurs="0" name="exclusivestartkey" nillable="true" type="xs:long" />

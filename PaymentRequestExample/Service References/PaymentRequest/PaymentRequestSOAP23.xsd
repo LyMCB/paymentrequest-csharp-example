@@ -1,35 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.ListForm.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.ListForm.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.CreateForm.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.CreateForm.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
-  <xs:complexType name="listformresponse">
+  <xs:complexType name="createformresponse">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
         <xs:sequence>
-          <xs:element minOccurs="0" name="formlist" nillable="true" type="tns:formlist" />
-          <xs:element minOccurs="0" name="paging" nillable="true" type="tns:paging" />
+          <xs:element minOccurs="0" name="form" nillable="true" type="tns:form" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="listformresponse" nillable="true" type="tns:listformresponse" />
-  <xs:complexType name="formlist">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="form" nillable="true" type="tns:form" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="formlist" nillable="true" type="tns:formlist" />
+  <xs:element name="createformresponse" nillable="true" type="tns:createformresponse" />
   <xs:complexType name="form">
     <xs:sequence>
       <xs:element minOccurs="0" name="formid" type="xs:long" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="form" nillable="true" type="tns:form" />
-  <xs:complexType name="paging">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="lastevaluatedkey" nillable="true" type="xs:long" />
-      <xs:element minOccurs="0" name="pagesize" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="paging" nillable="true" type="tns:paging" />
 </xs:schema>

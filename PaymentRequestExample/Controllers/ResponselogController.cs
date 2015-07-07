@@ -41,7 +41,7 @@ namespace PaymentRequestExample.Controllers
                 var request = new PaymentRequest.listrequestresponselogrequest
                 {
                     authentication = PaymentRequestWrapper.Authentication,
-                    paging = startkey.HasValue ? new paging { exclusivestartkey = startkey.Value } : null
+                    paging = startkey.HasValue ? new paging1 { exclusivestartkey = startkey.Value } : null
                 };
                 response = client.listrequestresponselog(request);
 

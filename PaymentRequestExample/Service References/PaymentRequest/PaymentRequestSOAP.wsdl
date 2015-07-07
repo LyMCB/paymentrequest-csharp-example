@@ -5,49 +5,44 @@
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd0" namespace="ePay.API.PaymentRequest" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/EPaymentLibrary.WCF.Validation.Engine" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd2" namespace="EPay.API.PaymentRequst.CreatePaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd2" namespace="EPay.API.PaymentRequest.CreatePaymentRequest.Request" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd4" namespace="EPay.API" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd6" namespace="EPay.API.PaymentWindow" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd7" namespace="EPay.API.PaymentRequest.CreatePaymentRequest.Response" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd8" namespace="EPay.API.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd10" namespace="EPay.API.PaymentRequst.GetPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd10" namespace="EPay.API.PaymentRequest.GetPaymentRequest.Request" />
       <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd11" namespace="EPay.API.PaymentRequest.GetPaymentRequest.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd12" namespace="EPay.API.PaymentRequst.GetPaymentRequest.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd13" namespace="EPay.API.PaymentRequest.ListPaymentRequest" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd14" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd15" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd16" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd17" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd18" namespace="EPay.API.PaymentRequst.ListPaymentRequest.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd19" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd20" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd21" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd22" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd23" namespace="EPay.API.PaymentRequest.Form.GetForm.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd24" namespace="EPay.API.PaymentRequest.Form.GetForm.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd25" namespace="EPay.API.PaymentRequest.Form.Input" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd26" namespace="EPay.API.PaymentRequest.Form.ListForm.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd27" namespace="EPay.API.PaymentRequst.Form.ListForm.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd28" namespace="EPay.API.PaymentRequest.Form.ListForm.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd29" namespace="EPay.API.PaymentRequst.Form.CreateForm.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd30" namespace="EPay.API.PaymentRequest.Form" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd31" namespace="EPay.API.PaymentRequest.Form.CreateForm.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd32" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd33" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd34" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd35" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd36" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd37" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd38" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd39" namespace="EPay.API.PaymentRequst.Transaction.ListTransaction.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd40" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd41" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd42" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Response" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd43" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd44" namespace="EPay.API.PaymentRequst.RequestResponseLog.ListRequestResponseLog.Request" />
-      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd45" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd12" namespace="EPay.API.PaymentRequest.ListPaymentRequest" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd13" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd14" namespace="EPay.API.PaymentRequest.ClosePaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd15" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd16" namespace="EPay.API.PaymentRequest.SendPaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd17" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd18" namespace="EPay.API.PaymentRequest.ListPaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd19" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd20" namespace="EPay.API.PaymentRequest.DeletePaymentRequest.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd21" namespace="EPay.API.PaymentRequest.Form.GetForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd22" namespace="EPay.API.PaymentRequest.Form.GetForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd23" namespace="EPay.API.PaymentRequest.Form.Input" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd24" namespace="EPay.API.PaymentRequest.Form.ListForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd25" namespace="EPay.API.PaymentRequest.Form.ListForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd26" namespace="EPay.API.PaymentRequest.Form.CreateForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd27" namespace="EPay.API.PaymentRequest.Form" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd28" namespace="EPay.API.PaymentRequest.Form.CreateForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd29" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd30" namespace="EPay.API.PaymentRequest.Form.DeleteForm.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd31" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd32" namespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd33" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd34" namespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd35" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd36" namespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd37" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd38" namespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Response" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd39" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Request" />
+      <xsd:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd40" namespace="EPay.API.PaymentRequest.RequestResponseLog.ListRequestResponseLog.Response" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPaymentRequest_createpaymentrequest_InputMessage">

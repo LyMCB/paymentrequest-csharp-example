@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.DeletePaymentRequest.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.DeletePaymentRequest.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.GetForm.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.GetForm.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
-  <xs:complexType name="deletepaymentrequestresponse">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd23" namespace="EPay.API.PaymentRequest.Form.Input" />
+  <xs:complexType name="getformresponse">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="form" nillable="true" type="tns:form" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="deletepaymentrequestresponse" nillable="true" type="tns:deletepaymentrequestresponse" />
+  <xs:element name="getformresponse" nillable="true" type="tns:getformresponse" />
+  <xs:complexType name="form">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inputlist" nillable="true" type="tns:inputlist" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="termsurl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="form" nillable="true" type="tns:form" />
+  <xs:complexType name="inputlist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="input" nillable="true" type="tns:input" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="inputlist" nillable="true" type="tns:inputlist" />
+  <xs:complexType name="input">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="EPay.API.PaymentRequest.Form.Input" minOccurs="0" name="optionlist" nillable="true" type="q2:optionlist" />
+      <xs:element xmlns:q3="EPay.API.PaymentRequest.Form.Input" minOccurs="0" name="type" type="q3:type" />
+      <xs:element minOccurs="0" name="validation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="input" nillable="true" type="tns:input" />
 </xs:schema>

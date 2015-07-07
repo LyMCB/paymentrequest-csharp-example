@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.ClosePaymentRequest.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.ClosePaymentRequest.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
-  <xs:complexType name="closepaymentrequestresponse">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.SendPaymentRequest.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.SendPaymentRequest.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+  <xs:complexType name="sendpaymentrequestrequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
-        <xs:sequence />
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="email" nillable="true" type="tns:email" />
+          <xs:element minOccurs="0" name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="closepaymentrequestresponse" nillable="true" type="tns:closepaymentrequestresponse" />
+  <xs:element name="sendpaymentrequestrequest" nillable="true" type="tns:sendpaymentrequestrequest" />
+  <xs:complexType name="email">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recipient" nillable="true" type="tns:recipient" />
+      <xs:element minOccurs="0" name="replyto" nillable="true" type="tns:replyto" />
+      <xs:element minOccurs="0" name="requester" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="email" nillable="true" type="tns:email" />
+  <xs:complexType name="recipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emailaddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="recipient" nillable="true" type="tns:recipient" />
+  <xs:complexType name="replyto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emailaddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="replyto" nillable="true" type="tns:replyto" />
+  <xs:complexType name="paymentrequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="paymentrequestid" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="paymentrequest" nillable="true" type="tns:paymentrequest" />
 </xs:schema>

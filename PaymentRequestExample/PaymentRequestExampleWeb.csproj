@@ -201,13 +201,13 @@
     <Content Include="Service References\PaymentRequest\PaymentRequestExample.PaymentRequest.sendpaymentrequestresponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\PaymentRequest\PaymentRequestSOAP.disco" />
-    <Content Include="Service References\PaymentRequest\configuration91.svcinfo" />
-    <Content Include="Service References\PaymentRequest\configuration.svcinfo" />
-    <Content Include="Service References\PaymentRequest\Reference.svcmap">
+    <None Include="Service References\PaymentRequest\PaymentRequestSOAP.disco" />
+    <None Include="Service References\PaymentRequest\configuration91.svcinfo" />
+    <None Include="Service References\PaymentRequest\configuration.svcinfo" />
+    <None Include="Service References\PaymentRequest\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -230,8 +230,8 @@
     <Content Include="Views\Form\List.cshtml" />
     <Content Include="Views\Form\Get.cshtml" />
     <Content Include="Views\Form\Delete.cshtml" />
-    <Content Include="Service References\PaymentRequest\PaymentRequest.wsdl" />
-    <Content Include="Service References\PaymentRequest\PaymentRequestSOAP.wsdl" />
+    <None Include="Service References\PaymentRequest\PaymentRequest.wsdl" />
+    <None Include="Service References\PaymentRequest\PaymentRequestSOAP.wsdl" />
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -241,16 +241,10 @@
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP10.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PaymentRequest\PaymentRequestSOAP11.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP12.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP13.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PaymentRequest\PaymentRequestSOAP14.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP15.xsd">
@@ -295,13 +289,7 @@
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP27.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PaymentRequest\PaymentRequestSOAP28.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP29.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PaymentRequest\PaymentRequestSOAP3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP30.xsd">
@@ -362,9 +350,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PaymentRequest\PaymentRequestSOAP8.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PaymentRequest\PaymentRequestSOAP9.xsd">

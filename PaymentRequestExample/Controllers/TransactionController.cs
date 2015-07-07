@@ -22,11 +22,11 @@ namespace PaymentRequestExample.Controllers
             PaymentRequest.addtransactionresponse addPaymentRequestTransactionResponse = client.addtransaction(new PaymentRequest.addtransactionrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                paymentrequest = new PaymentRequest.paymentrequest2
+                paymentrequest = new PaymentRequest.paymentrequest7
                 {
                     paymentrequestid = paymentRequestId
                 },
-                transaction = new PaymentRequest.transaction
+                transaction = new PaymentRequest.transaction1
                 {
                     transactionid = transactionid
                 }
@@ -59,8 +59,8 @@ namespace PaymentRequestExample.Controllers
                 response = client.listtransaction(new PaymentRequest.listtransactionrequest
                 {
                     authentication = PaymentRequestWrapper.Authentication,
-                    paging = startkey.HasValue ? new paging2 { exclusivestartkey = startkey.Value } : null,
-                    paymentrequest = new PaymentRequest.paymentrequest4
+                    paging = startkey.HasValue ? new paging3 { exclusivestartkey = startkey.Value } : null,
+                    paymentrequest = new PaymentRequest.paymentrequest6
                     {
                         paymentrequestid = paymentRequestId
                     }
@@ -91,11 +91,11 @@ namespace PaymentRequestExample.Controllers
             PaymentRequest.gettransactionresponse getPaymentRequestTransactionResponse = client.gettransaction(new PaymentRequest.gettransactionrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                paymentrequest = new PaymentRequest.paymentrequest7
+                paymentrequest = new PaymentRequest.paymentrequest2
                 {
                     paymentrequestid = paymentRequestId
                 },
-                transaction = new PaymentRequest.transaction1
+                transaction = new PaymentRequest.transaction
                 {
                     transactionid = transactionid
                 }

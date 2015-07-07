@@ -11,7 +11,6 @@
       <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="declinetext" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="formid" nillable="true" type="xs:long" />
       <xs:element minOccurs="0" name="group" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="instantcapture" nillable="true" type="tns:instantcapture" />
       <xs:element minOccurs="0" name="invoice" nillable="true" type="xs:string" />
@@ -23,6 +22,7 @@
       <xs:element minOccurs="0" name="orderid" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ordertext" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="paymentcollection" nillable="true" type="tns:paymentcollection" />
+      <xs:element minOccurs="0" name="paymentrequestformid" nillable="true" type="xs:long" />
       <xs:element minOccurs="0" name="paymenttype" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="recurring" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="splitpayment" nillable="true" type="tns:splitpayment" />

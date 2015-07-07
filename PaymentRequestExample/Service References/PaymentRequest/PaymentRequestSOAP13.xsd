@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.DeletePaymentRequest.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.DeletePaymentRequest.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.GetForm.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.GetForm.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
-  <xs:complexType name="deletepaymentrequestrequest">
+  <xs:complexType name="getformrequest">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
         <xs:sequence>
-          <xs:element minOccurs="0" name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+          <xs:element minOccurs="0" name="form" nillable="true" type="tns:form" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="deletepaymentrequestrequest" nillable="true" type="tns:deletepaymentrequestrequest" />
-  <xs:complexType name="paymentrequest">
+  <xs:element name="getformrequest" nillable="true" type="tns:getformrequest" />
+  <xs:complexType name="form">
     <xs:sequence>
-      <xs:element minOccurs="0" name="paymentrequestid" type="xs:long" />
+      <xs:element minOccurs="0" name="formid" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+  <xs:element name="form" nillable="true" type="tns:form" />
 </xs:schema>

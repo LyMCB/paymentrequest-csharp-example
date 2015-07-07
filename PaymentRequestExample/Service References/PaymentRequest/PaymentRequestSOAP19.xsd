@@ -1,35 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
-  <xs:complexType name="gettransactionresponse">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.RequestResponseLog.GetRequestResponseLog.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+  <xs:complexType name="getrequestresponselogrequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
         <xs:sequence>
-          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:transaction" />
+          <xs:element minOccurs="0" name="requestresponselog" nillable="true" type="tns:requestresponselog" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="gettransactionresponse" nillable="true" type="tns:gettransactionresponse" />
-  <xs:complexType name="transaction">
+  <xs:element name="getrequestresponselogrequest" nillable="true" type="tns:getrequestresponselogrequest" />
+  <xs:complexType name="requestresponselog">
     <xs:sequence>
-      <xs:element minOccurs="0" name="created" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="inputlist" nillable="true" type="tns:inputlist" />
-      <xs:element minOccurs="0" name="transactionid" type="xs:long" />
+      <xs:element minOccurs="0" name="requestresponselogid" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="transaction" nillable="true" type="tns:transaction" />
-  <xs:complexType name="inputlist">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="input" nillable="true" type="tns:input" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="inputlist" nillable="true" type="tns:inputlist" />
-  <xs:complexType name="input">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="input" nillable="true" type="tns:input" />
+  <xs:element name="requestresponselog" nillable="true" type="tns:requestresponselog" />
 </xs:schema>

@@ -24,7 +24,7 @@ namespace PaymentRequestExample.Controllers
             PaymentRequest.getformresponse getFormResponse = client.getform(new PaymentRequest.getformrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                form = new PaymentRequest.form
+                form = new PaymentRequest.form1
                 {
                     formid = formid
                 }
@@ -41,13 +41,13 @@ namespace PaymentRequestExample.Controllers
         [HttpPost]
         public ActionResult Create(string formname)
         {
-            PaymentRequest.inputlist1 inputList = new PaymentRequest.inputlist1();
-            inputList.Add(new PaymentRequest.input1
+            PaymentRequest.inputlist inputList = new PaymentRequest.inputlist();
+            inputList.Add(new PaymentRequest.input
             {
                 type = PaymentRequest.type.text,
                 name = "Firstname"
             });
-            inputList.Add(new PaymentRequest.input1
+            inputList.Add(new PaymentRequest.input
             {
                 type = PaymentRequest.type.text,
                 name = "Lastname"
@@ -63,7 +63,7 @@ namespace PaymentRequestExample.Controllers
                 value = "Female"
             });
 
-            inputList.Add(new PaymentRequest.input1
+            inputList.Add(new PaymentRequest.input
             {
                 type = PaymentRequest.type.select,
                 name = "Gender",
@@ -73,7 +73,7 @@ namespace PaymentRequestExample.Controllers
             PaymentRequest.createformresponse createFormResponse = client.createform(new PaymentRequest.createformrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                form = new PaymentRequest.form1
+                form = new PaymentRequest.form2
                 {
                     name = formname + "-" + DateTime.UtcNow,
                     termsurl = "http://www.epay.dk",
@@ -104,7 +104,7 @@ namespace PaymentRequestExample.Controllers
             client.deleteform(new PaymentRequest.deleteformrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                form = new PaymentRequest.form2
+                form = new PaymentRequest.form
                 {
                     formid = formid
                 }

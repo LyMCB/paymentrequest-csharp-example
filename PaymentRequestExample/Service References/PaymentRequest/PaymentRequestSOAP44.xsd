@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.Form.CreateForm.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Form.CreateForm.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
-  <xs:complexType name="createformresponse">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Transaction.AddTransaction.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
+  <xs:complexType name="addtransactionrequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
         <xs:sequence>
-          <xs:element minOccurs="0" name="form" nillable="true" type="tns:form" />
+          <xs:element minOccurs="0" name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:transaction" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="createformresponse" nillable="true" type="tns:createformresponse" />
-  <xs:complexType name="form">
+  <xs:element name="addtransactionrequest" nillable="true" type="tns:addtransactionrequest" />
+  <xs:complexType name="paymentrequest">
     <xs:sequence>
-      <xs:element minOccurs="0" name="formid" type="xs:long" />
+      <xs:element minOccurs="0" name="paymentrequestid" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="form" nillable="true" type="tns:form" />
+  <xs:element name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+  <xs:complexType name="transaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inputlist" nillable="true" type="tns:inputlist" />
+      <xs:element minOccurs="0" name="transactionid" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="transaction" nillable="true" type="tns:transaction" />
+  <xs:complexType name="inputlist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="input" nillable="true" type="tns:input" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="inputlist" nillable="true" type="tns:inputlist" />
+  <xs:complexType name="input">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="input" nillable="true" type="tns:input" />
 </xs:schema>

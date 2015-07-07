@@ -2,7 +2,7 @@
 <xs:schema xmlns:tns="EPay.API.PaymentRequest" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd6" namespace="EPay.API.PaymentWindow" />
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd4" namespace="EPay.API" />
-  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd30" namespace="EPay.API.PaymentRequest.Form" />
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd27" namespace="EPay.API.PaymentRequest.Form" />
   <xs:complexType name="paymentrequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="closeafterxpayments" nillable="true" type="xs:int" />

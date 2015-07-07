@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Transaction.GetTransaction.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
-  <xs:complexType name="gettransactionrequest">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.Transaction.ListTransaction.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
+  <xs:complexType name="listtransactionresponse">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="EPay.API.PaymentRequest.Request" base="q1:request">
+      <xs:extension xmlns:q1="EPay.API.PaymentRequest" base="q1:response">
         <xs:sequence>
-          <xs:element minOccurs="0" name="paymentrequest" nillable="true" type="tns:paymentrequest" />
-          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:transaction" />
+          <xs:element minOccurs="0" name="paging" nillable="true" type="tns:paging" />
+          <xs:element minOccurs="0" name="transactionlist" nillable="true" type="tns:transactionlist" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="gettransactionrequest" nillable="true" type="tns:gettransactionrequest" />
-  <xs:complexType name="paymentrequest">
+  <xs:element name="listtransactionresponse" nillable="true" type="tns:listtransactionresponse" />
+  <xs:complexType name="paging">
     <xs:sequence>
-      <xs:element minOccurs="0" name="paymentrequestid" type="xs:long" />
+      <xs:element minOccurs="0" name="lastevaluatedkey" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="pagesize" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="paymentrequest" nillable="true" type="tns:paymentrequest" />
+  <xs:element name="paging" nillable="true" type="tns:paging" />
+  <xs:complexType name="transactionlist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="transaction" nillable="true" type="tns:transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="transactionlist" nillable="true" type="tns:transactionlist" />
   <xs:complexType name="transaction">
     <xs:sequence>
+      <xs:element minOccurs="0" name="created" type="xs:dateTime" />
       <xs:element minOccurs="0" name="transactionid" type="xs:long" />
     </xs:sequence>
   </xs:complexType>

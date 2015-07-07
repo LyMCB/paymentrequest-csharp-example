@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="EPay.API.PaymentRequst.CreatePaymentRequest.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequst.CreatePaymentRequest.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="EPay.API.PaymentRequest.CreatePaymentRequest.Request" elementFormDefault="qualified" targetNamespace="EPay.API.PaymentRequest.CreatePaymentRequest.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd5" namespace="EPay.API.PaymentRequest" />
   <xs:import schemaLocation="https://paymentrequest.api.epay.eu/v1/PaymentRequestSOAP.svc?xsd=xsd3" namespace="EPay.API.PaymentRequest.Request" />
   <xs:complexType name="createpaymentrequestrequest">

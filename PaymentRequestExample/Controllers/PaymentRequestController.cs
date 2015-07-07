@@ -50,7 +50,7 @@ namespace PaymentRequestExample.Controllers
             PaymentRequest.getpaymentrequestresponse getPaymentRequestResponse = client.getpaymentrequest(new PaymentRequest.getpaymentrequestrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                paymentrequest = new PaymentRequest.paymentrequest5
+                paymentrequest = new PaymentRequest.paymentrequest4
                 {
                     paymentrequestid = paymentRequestId
                 }
@@ -96,7 +96,7 @@ namespace PaymentRequestExample.Controllers
                 response = client.listpaymentrequest(new PaymentRequest.listpaymentrequestrequest
                 {
                     authentication = PaymentRequestWrapper.Authentication,
-                    paging = startkey.HasValue ? new paging1 { exclusivestartkey = startkey.Value } : null
+                    paging = startkey.HasValue ? new paging2 { exclusivestartkey = startkey.Value } : null
                 });
 
                 if (response.result)
@@ -124,7 +124,7 @@ namespace PaymentRequestExample.Controllers
             client.sendpaymentrequest(new PaymentRequest.sendpaymentrequestrequest
             {
                 authentication = PaymentRequestWrapper.Authentication,
-                paymentrequest = new PaymentRequest.paymentrequest6
+                paymentrequest = new PaymentRequest.paymentrequest5
                 {
                     paymentrequestid = paymentRequestId
                 },
